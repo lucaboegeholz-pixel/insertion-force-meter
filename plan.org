@@ -1,0 +1,22 @@
+#+title: Kraftmesser
+#+author: Luca
+#+language: de
+#+options: toc:t ^:{} H:4
+#+latex_header: \usepackage[ngerman]{babel}
+#+latex_header: \usepackage{amsmath,amssymb,pgfplots}
+#+latex_header: \pgfplotsset{compat=1.18}
+#+latex_header: \usepackage[vmargin=2cm,hmargin=3cm]{geometry}
+#+latex_header: \hypersetup{hidelinks}
+#+latex_header: \usepackage{circuitikz}
+#+latex_header: \AddToHook{cmd/section/before}{\clearpage}
+
+* Brainstorm
+** was braucht man? 
+- load cell
+- pico w
+- externer AD converter
+- display
+
+* Software
+* Hardware
+
