@@ -19,4 +19,60 @@
 
 * Software
 * Hardware
+#+begin_export latex
+\begin{center}
+\begin{tikzpicture}[thick, x=0.0095cm, y=-0.0095cm,
+    lbl/.style={font=\small},
+    power/.style={line width=1.6pt, dashed}]
+  % ---------- Stepper motor mit Spindel ----------
+  \draw (100,140) rectangle (420,270);                  % Motor
+  \begin{scope}                                         % schraffierte Spindel
+    \clip (420,190) rectangle (745,235);
+    \foreach \x in {380,410,...,760} \draw[thin] (\x,235) -- (\x+45,190);
+  \end{scope}
+  \draw (420,190) rectangle (745,235);
+  \node[lbl, anchor=south west] at (100,135) {Stepper motor};
 
+  % ---------- Stepper driver board ----------
+  \draw (45,405) rectangle (360,590);
+  \node[lbl, anchor=north west] at (45,600) {Stepper driver board};
+
+  % ---------- Power supply ----------
+  \draw (45,760) rectangle (360,900);
+  \node[lbl, anchor=north west] at (45,910) {Power supply};
+
+  % ---------- Pico W ----------
+  \draw (490,405) rectangle (920,1035);
+  \node[lbl, anchor=south] at (705,400) {Pico W};
+
+  % ---------- Load cell, Amplifier, ADC ----------
+  \draw (990,145) rectangle (1380,275);
+  \node[lbl, anchor=south] at (1185,140) {Load cell};
+  \draw (1050,475) rectangle (1305,725);
+  \node[lbl, anchor=south] at (1178,470) {Amplifier};
+  \draw (1050,790) rectangle (1305,1035);
+  \node[lbl, anchor=south] at (1178,785) {ADC};
+
+  % ---------- Display ----------
+  \draw (425,1095) rectangle (985,1345);
+  \node[lbl, anchor=north] at (705,1355) {Display};
+
+  % ---------- Motorstrom (Leistung) ----------
+  \draw[power] (45,830) -- (5,830) -- (5,540) -- (45,540);    % Netzteil -- Treiber
+  \draw[power] (230,270) -- (230,405);                         % Treiber -- Motor
+
+  % ---------- Signale ----------
+  \draw (360,500) -- (490,500);                               % Treiber -- Pico
+  \draw (1380,210) -- (1440,210) -- (1440,535) -- (1305,535); % Load cell -- Amplifier
+  \draw (1305,660) -- (1440,660) -- (1440,910) -- (1305,910); % Amplifier -- ADC
+  \draw (920,910) -- (1050,910);                              % Pico -- ADC
+  \draw (705,1035) -- (705,1095);                             % Pico -- Display
+
+  % ---------- Legende ----------
+  \draw (45,1180) -- (165,1180);
+  \node[lbl, anchor=west] at (180,1180) {Signal};
+  \draw[power] (45,1260) -- (165,1260);
+  \node[lbl, anchor=west] at (180,1260) {Motorstrom};
+\end{tikzpicture}
+\end{center}
+#+end_export
